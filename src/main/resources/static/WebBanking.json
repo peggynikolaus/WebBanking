@@ -1,0 +1,8 @@
+{
+	"json_Empfaenger": "Testempfänger",
+	"json_Iban": "DE123456",
+	"json_Bic": "PBNK123",
+	"json_Betrag": "35,50",
+	"json_Waehrung": "Euro",
+	"json_Verwendungszweck": "Testzweck"
+}
