@@ -1,8 +1,4 @@
 
-
-
-
-
 function empfaenger1(antwort) {
 	var v_json = antwort.json();
 	return v_json;
@@ -17,7 +13,7 @@ function empfaenger2(json) {
 	var verwendungszweck = json.verwendungszweck;
 
 	//Ausgabe Bankdaten
-	document.getElementById("Output").innerHTML;
+	//document.getElementById("Output").innerHTML;
 	document.getElementById("empfaenger").innerHTML = empfaenger;
 	document.getElementById("iban").innerHTML = iban;
 	document.getElementById("bic").innerHTML = bic;
@@ -33,8 +29,6 @@ function Testdaten_abrufen () {
 	.then(empfaenger2);
 	
 }
-
-document.getElementById("Button").addEventListener("click", Testdaten_abrufen);
 
 
 

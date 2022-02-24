@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title> TestWebBanking </title>
-		
-		<link rel="stylesheet" href="xxx.css" >
-		<script src="WebBanking.js" type="module"></script>
-	</head>
-	
-	<body>
-		<h1>PegBanking</h1>
-		
+<head>
+<meta charset="UTF-8">
+<title>TestWebBanking</title>
+<link href="favicon(1).ico" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" href="WebBanking.css">
+<script defer src="WebBanking.js" type="module"></script>
+</head>
+
+<body id=indexbody>
+	<header id=indexheader>
+		<br>
+		<h1>Welcome to PegBanking</h1>
+		<br> <img src=bank.jpg></img> <br>
+		<h2>Übersicht TestKontobewegungen</h2>
+	</header>
+
 	<main>
-	
-		<div>
-		<p><h2>Übersicht TestKontobewegungen</h2></p>
-		<button id="Button" type="button">OK</button>
-		<p><strong>Empfaenger:</strong>  <span id="empfaenger"></span>
-		<br>
-		<strong>IBAN:</strong>  <span id="iban"></span>
-		<br>
-		<strong>BIC:</strong> <span id="bic"></span>
-		<br>
-		<strong>Betrag:</strong>  <span id="betrag"></span>
-		<br>
-		<strong>Währung:</strong>  <span id="waehrung"></span>
-		<br>
-		<strong>Verwendungszweck:</strong> <span id="verwendungszweck"></span></p>
-		
+		<!-- Seitennavigation -->
+		<div class="sidenav">
+			<h2>PegBanking</h2>
+			<h2>Menue</h2>
+			<a href="/index.html">Home</a> 
+			<a href="/einzel.html">Anzeige Einzelzahlung</a> 
+			<a href="/uebersicht.html">Übersicht Transaktionen</a> 
+			<a href="/eingabeZahlung.html">Eingabe Zahlung</a>
 		</div>
-	
-		<div>
-		<p>Übersicht Kontobewegungen</p>
-		<p id=Output style="border: 2px solid black; height: 90px; width: 200px; background-color: white;"></p>
-		</div>
-	
-	</main>	
+
+		<div id="EingabeFeld">
+        Anzahl von Testdaten <input id="input2" type="text">
+        <br>
+   		</div>
+
+   		<div id="ausgabeSingleButton">
+        <button id="btn2" type="button">Daten generieren</button>
+   		</div>
+   		
+   		<script>
+   		 document.getElementById("btn2").addEventListener("click", testDataStart);
+
+   		 function testDataStart() {
+     	 var eingabeUser = document.getElementById("input2").value;
+         var url = "/testdaten/" + eingabeUser
+         window.location = url;
+    }
+
+    </script>
 		
-	</body>
+
+	</main>
+
+</body>
 
 </html>

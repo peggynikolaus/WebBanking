@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th=th="http://www.thymeleaf.org"> <!-- Angabe ist zwingend notwendig! -->
+<head>
+
+<title>Thymeleaf</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+
+</head>
+
+<body>
+
+	<h1 th:text="|Hello ${name}!|">Hello World!</h1>		<!-- name: wird aus der ControllerThymeleaf gezogen! -->
+	
+	<a th:href="@{/home(name=${name},age=${age})}">Home page</a>
+	
+	<ul th:each="food : ${lunch}">
+    <li th:text="${food.name}">Name</li>
+    <li th:text="${food.calories}">Calories</li>
+	</ul>
+	
+	<ul>
+    <li>Big Mac</li>
+    <li>450</li>
+	</ul>
+
+	<ul>
+    <li>French fries</li>
+    <li>275</li>
+	</ul>
+
+	<ul>
+    <li>Chocolate Sundae</li>
+    <li>175</li>
+	</ul>
+	
+	<div th:object="${food}">
+	  <span th:text="*{name}">Name</span>
+	  <span th:text="*{calories}">Calories</span>
+	</div>
+
+</body>
+
+</html>

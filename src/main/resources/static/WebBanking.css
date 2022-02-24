@@ -1,7 +1,97 @@
 @charset "UTF-8";
 
-body {
+
+#indexheader {
+		color: darkslateblue;
+		text-align: center;
+		font-family: arial;
+		width: 1000px;
+		margin: auto
+}
+
+#indexbody {
 	background-color: grey;
-	text-align: center;
-	
+	text-align: center; 
+	font-family: arial;
+	}
+
+#einzelheader {
+		color: darkslateblue;
+		text-align: center;
+		font-family: arial;
+		width: 1000px;
+		margin: auto	
+		}
+
+#einzelbody {
+		background-color: grey;
+		text-align: center; 
+		font-family: arial;
+		}
+		
+#einzelAusgabe {
+		text-align: left; 
+		width: 300px;
+		font-family: arial;
+		margin: auto
+		}
+		
+#eingabeZahlungheader {
+		color: darkslateblue;
+		text-align: center;
+		font-family: arial;
+		width: 1000px;
+		margin: auto
+		}
+		
+#eingabeZahlungbody {
+		background-color: grey;
+}
+		
+#eingabeZahlungmain {
+		background-color: grey;
+		text-align: left; 
+		width: 200px;
+		font-family: arial;
+		margin: auto
+}
+
+#Eingabefelder {
+		float: left;
+		width: 130px;
+		
+} 
+
+
+/* Seitennavigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: darkslateblue;
+  overflow-x: hidden;
+  padding-top: 5px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color: lightgrey;
+  font-family: arial;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav h2 {
+    padding: 6px 8px 6px 16px;
+    color: #818181;
+    text-align: center;
+    font-family: arial;
 }
