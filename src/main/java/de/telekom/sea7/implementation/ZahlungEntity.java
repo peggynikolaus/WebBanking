@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity // die Annotation gibt an, dass das Objekt von Spring Data verwaltet wird und dass seine Attribute in Spalten von DB-Tabellen konvertiert werden
 public class ZahlungEntity {
 	
-	@Id // gibt an, dass das Attribut als Primärschlüssel in der Tabelle verwendet werden soll, die der Entität entspricht
+	@Id // gibt an, dass das Attribut als Primaerschluessel in der Tabelle verwendet werden soll, die der Entitaet entspricht
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // gibt an dass der Wert der ID beim Einfügen in die Datenbank automatisch und inkrementell generiert wird
 	
 	private Long id;
@@ -29,7 +29,7 @@ public class ZahlungEntity {
 	@Column(name="verwendungszweck")
 	private String verwendungszweck;
 	
-	// ein leerer Konstruktor sowie alle Getter/Setter: Dank ihnen kann eine Instanz der Entität automatisch vom Repository erstellt werden
+	// ein leerer Konstruktor sowie alle Getter/Setter: Dank ihnen kann eine Instanz der Entitaet automatisch vom Repository erstellt werden
 	public ZahlungEntity() {
 		
 	}

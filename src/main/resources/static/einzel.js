@@ -35,7 +35,8 @@ document.getElementById("Button").addEventListener("click", Testdaten_abrufen);
 
 function Testdaten_auslesen () {
     var uebergebeneID = document.getElementById("input3").value;
-    var jsonURL = "/zahlung/"+uebergebeneID;
+   // var jsonURL = "/zahlung/"+uebergebeneID; - ArrayList
+    var jsonURL = "/onezahlungDB/"+uebergebeneID; // Datenbank
     fetch(jsonURL)
     .then(empfaenger1)
     .then(empfaenger2);

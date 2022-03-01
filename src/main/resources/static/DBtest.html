@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>DBtest</title>
+
+</head>
+
+<body>
+
+<h3 th:text="${wizard.id} ? 'Edit Wizard' : 'Create ZahlungEntity'">ZahlungEntity</h3>
+
+<form method="post" th:action="@{/zahlungDB}" th:object="${wizard}">
+
+    <input name="id" th:field="*{id}" type="hidden">
+
+    <label for="zahlungDB-empfaenger">Empfaenger:</label>
+
+    <input id="zahlungDB-empfaenger" name="empfaenger" placeholder="Empfaenger" required th:field="*{empfaenger}" type="text">
+
+    <br><br>
+
+    <label for="zahlungDB-iban">Iban:</label>
+
+    <input id="zahlungDB-iban" name="iban" placeholder="Iban" required th:field="*{iban}" type="text">
+
+    <br><br>
+
+    <label for="zahlungDB-bic">Bic:</label>
+
+    <input id="zahlungDB-bic" name="bic" placeholder="Bic" required th:field="*{bic}" type="text">
+
+    <br><br>
+
+    <label for="zahlungDB-betrag">Betrag:</label>
+
+    <input id="zahlungDB-betrag" name="betrag" placeholder="Betrag" th:field="*{betrag}" type="text">
+
+    <br><br>
+
+    <label for="wizard-biography">Biography:</label>
+
+    <textarea id="wizard-biography" name="biography" th:field="*{biography}"></textarea>
+
+    <br><br>
+
+    <label for="wizard-is-muggle">Is Muggle ?</label>
+
+    <input id="wizard-is-muggle" name="muggle" th:field="*{muggle}" type="checkbox">
+
+    <br><br>
+
+    <input type="submit" value="Send">
+
+</form>
+
+</body>
+
+</html>
