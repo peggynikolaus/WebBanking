@@ -6,20 +6,18 @@
 	<title>TestWebBanking</title>
 	<link href="favicon(1).ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="WebBanking.css">
-	<script src="WebBanking.js" type="module"></script>
 </head>
 
-<body>
+<body id=einzelbody>
 
-<header>
+<header id=einzelheader>
 
-	<h2>Übersicht verschiedener Kontobewegungen</h2>
+	<h2>Uebersicht Kontobewegungen</h2>
 	<br> <img src=uebersicht.jpg></img> 
 	<br>
 	<br>
 	<br>
-	<button id="Button" type="button">OK</button>
-
+	
 </header>
 
 <!-- Seitennavigation -->
@@ -32,21 +30,73 @@
 			<a href="/eingabeZahlung.html">Eingabe Zahlung</a>
 		</div>
 
-<div>
-
-	<p>
-		<strong>Empfaenger:</strong> <span id="empfaenger"></span> <br>
-		<strong>IBAN:</strong> <span id="iban"></span> <br> <strong>BIC:</strong>
-		<span id="bic"></span> <br> <strong>Betrag:</strong> <span id="betrag"></span> <br> <strong>Währung:</strong>
-		<span id="waehrung"></span> <br> <strong>Verwendungszweck:</strong>
-		<span id="verwendungszweck"></span>
-	</p>
-
+<div id=einzelAusgabe>
+<div id=ListAusgabe></div>
 </div>
 
-    
-  
 </body>
+
+<script>
+listFromJson();
+		
+		function loescheZelle(i) {
+			fetch("/deletezahlungDB/" + i, 
+					{ 
+					headers: {"Content-Type":"application/json"}, 
+					method: "DELETE",
+					body: "",
+					}) .then(alert("Datensatz gelöscht!"))
+					location.reload();
+		}
+		
+		
+		var table = document.createElement("table");  //erzeugt Speicherplatz für eine leere Tabelle
+		
+		function listFromJson() {
+			var jsonURL="/zahlungDB"
+			fetch(jsonURL)
+			.then(empfaenger1)
+			.then(empfaenger2)
+		}
+		
+		function empfaenger1(antwort) {
+			var json = antwort.json();
+			return json;
+		}
+		
+		function empfaenger2(json) {
+			var spalte = [];
+			for(var i = 0; i < json.length; i++) {					//ermitteln und anlegen leerer Spalten 
+				for(var key in json[i]) {
+					if(spalte.indexOf(key) === -1) {
+						spalte.push(key);
+					}
+				}
+			}
+			var zeile = table.insertRow(-1);
+			
+			for(var i = 0; i < spalte.length; i++) { 				//befuellen der Spalten Ueberschriften
+				var ueberschrift = document.createElement("th");	//erzeugen der leeren header
+				ueberschrift.innerHTML=spalte[i];					//Wert eintragen
+				zeile.appendChild(ueberschrift);					//Zeile hinzufuegen
+			}
+			for(var i = 0; i < json.length; i++) {
+				zeile = table.insertRow(-1);
+				for(var j = 0; j < spalte.length; j++) {
+					var tabellenzellen = zeile.insertCell(-1);		//erzeugen der Zellen
+					tabellenzellen.innerHTML=json[i][spalte[j]];
+				}
+			var link = json[i].id;
+			var tabellenzellen = zeile.insertCell(-1);				//erzeugt weitere Zelle für delete Link
+				tabellenzellen.innerHTML='<a href = "#" onclick="loescheZelle('+link+');" title="delete">delete</a>';
+			}
+		var divContainer = document.getElementById("ListAusgabe");
+		divContainer.innerHTML = "";
+		divContainer.appendChild(table);
+		}
+		
+		
+</script>
 
 
 </html>

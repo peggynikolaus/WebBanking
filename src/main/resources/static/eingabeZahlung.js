@@ -6,8 +6,8 @@ function post() {
 
     var input = {
         empfaenger:         document.getElementById("inputemp").value,
-        empfaengerIBAN:     document.getElementById("inputiban").value,
-        empfaengerBIC:         document.getElementById("inputbic").value,
+        iban:			     document.getElementById("inputiban").value,
+        bic:         document.getElementById("inputbic").value,
         betrag:               document.getElementById("inputbetrag").value,
         waehrung:           document.getElementById("inputwaeh").value,
         verwendungszweck:     document.getElementById("inputzweck").value,
@@ -24,6 +24,6 @@ function post() {
         body: json
     }
 
-    ).then(alert("Danke für die Nutzung unseres Webservices! Es wurden Ihnen Gebühren in Höhe von 0,05 Euro in Rechnung gestellt!"))
+    ).then(alert("Zahlung wurde gespeichert!"))
 
 }

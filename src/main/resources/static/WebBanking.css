@@ -36,6 +36,13 @@
 		margin: auto
 		}
 		
+#ListAusgabe {
+		text-align: left; 
+		width: 300px;
+		font-family: arial;
+		margin: auto
+		}
+		
 #eingabeZahlungheader {
 		color: darkslateblue;
 		text-align: center;
